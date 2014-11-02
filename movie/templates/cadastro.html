@@ -1,0 +1,62 @@
+{% extends 'template.html' %}
+
+{% block titulo %}Cadastro{% endblock titulo %}
+
+{% block conteudo %}
+
+    <section class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">TubeLike</h1>
+                        <p class="intro-text">Na url informe uma url embed</p>
+                        <div class="page-scroll">
+                            <a href="#cadastre" class="btn btn-circle">
+                                <i class="fa fa-angle-double-down animated"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cadastre" class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1>Cadastre um Top Video</h1>
+                        <form action="/cadastrar/" method="POST" class="form-horizontal" role="form">
+                            {%csrf_token%}
+                            {% for field in form %}
+                                {% if field.html_name != "categoria" %}
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" id="{{ field.id_for_label }}" name="{{ field.html_name }}" placeholder="{{ field.html_name }}">
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <select  class="form-control" id="{{ field.id_for_label }}" name="{{ field.html_name }}">
+                                            <option value="">Selecione</option>
+                                            {% for option in categorias %}
+                                            <option value="{{ option.id }}">{{ option.descricao }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+
+                            <input class="btn btn-default" type="submit" value="Cadastrar" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{%endblock conteudo %}

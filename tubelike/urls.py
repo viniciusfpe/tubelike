@@ -5,4 +5,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('movie',
     url(r'^$', 'views.index'),
+    url(r'^cadastro/$', 'views.cadastro'),
+    url(r'^cadastrar/$', 'views.cadastrar'),
 )
