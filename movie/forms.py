@@ -5,6 +5,6 @@ class MovieForm(forms.ModelForm):
 	class Meta:
 		model = Movie
 
-class LikeComentsForMovieForm(forms.ModelForm):
+class ComentsForMovieForm(forms.ModelForm):
 	class Meta:
 		model = LikeComentsForMovie

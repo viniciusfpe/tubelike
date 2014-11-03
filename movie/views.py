@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
-from movie.forms import MovieForm, LikeComentsForMovieForm
-from movie.models import Movie, Categoria, LikeComentsForMovie
+from movie.forms import MovieForm, ComentsForMovieForm
+from movie.models import Movie, Categoria, ComentsForMovie, LikesForMovie
 
 def index(request):
     return render(request, 'index.html')
