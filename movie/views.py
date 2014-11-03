@@ -39,7 +39,7 @@ def getMovie(request, c=1):
 def getMovieForComents(request, v=0):
 	try:
 		movie = Movie.objects.get(pk=v)
-		#clmovie = LikeComentsForMovie.objects.Filter(id_Movie=id_Movie)
+		clmovie = LikeComentsForMovie.objects.filter(id_Movie=v)
 
 		return render(request, 'comentsmovie.html', {'movie':movie, 'clmovie':clmovie})
 
