@@ -8,4 +8,5 @@ urlpatterns = patterns('movie.views',
     url(r'^cadastro/$', 'cadastro'),
     url(r'^cadastrar/$', 'cadastrar'),
     url(r'^videos/(?P<c>\d+)/$', 'getMovie'),
+    url(r'^video/(?P<v>\d+)/$', 'getMovieForComents'),
 )

@@ -22,7 +22,7 @@ def cadastrar(request):
 	if form.is_valid():
 		form.save()
 
-	return HttpResponseRedirect('/cadastro/')
+	return HttpResponseRedirect('/videos/'+str(form.cleaned_data['categoria'])+'/')
 
 
 def getMovie(request, c=1):
@@ -36,19 +36,12 @@ def getMovie(request, c=1):
 		return HttpResponseRedirect('/')
 
 
-def getMovieForComents(request):
+def getMovieForComents(request, v=0):
+	try:
+		movie = Movie.objects.get(pk=v)
+		#clmovie = LikeComentsForMovie.objects.Filter(id_Movie=id_Movie)
 
-	idMovie = request.GET.get('m', '')
+		return render(request, 'comentsmovie.html', {'movie':movie, 'clmovie':clmovie})
 
-	if idMovie != '':
-		try:
-			movie = Movie.objects.get(pk=idMovie)
-			#clmovie = LikeComentsForMovie.objects.Filter(id_Movie=id_Movie)
-
-			return render(request, 'comentsmovie.html', {'movie':movie, 'clmovie':clmovie})
-
-		except:
-			return HttpResponseRedirect('/')
-
-	else:
+	except:
 		return HttpResponseRedirect('/')
