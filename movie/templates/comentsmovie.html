@@ -1,0 +1,63 @@
+{% extends 'template.html' %}
+
+{% block titulo %}Detalhes do video{% endblock titulo %}
+
+{% block conteudo %}
+    
+    <style>
+    	.comments {
+    		background: #FFF;
+    		color: #222;
+    		text-align: left !important;
+    	}
+    </style>
+    <br><br>
+    <section class="container content-section text-center" style="padding-top: 60px;height: 100%;">
+        <h3>{{ movie.descricao }}</h3>
+        <div class="row">
+            <div class="col-lg-12">
+            	<iframe width="560" height="315" src="{{ movie.url }}" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-lg-3"></div>
+            <div class="col-lg-6">
+            	<div class="" >            		
+            		<table class="table comments">
+            			<tr>
+            				<th>Comentarios</th>
+            			</tr>
+					    {% for item in cmovie %}
+	                    <tr>
+	                    	<td>{{ item.comentarios }} - <small>{{ item.dataCadastro }}</small></td>
+	                    </tr> 
+		                {% endfor %}
+		                <tr>
+		                	<td style="text-align: center !important;">
+			                	<input type="text" placeholder="Deixe seu comentario..." style="height: 33px; width: 80%;"/>
+			                	<button id="cmdSend" class="btn btn-default"><span class="glyphicon glyphicon-send"></span></button>
+			                </td>
+		                </tr>
+					</table>
+            	</div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </section>
+
+    <script>
+    	$("#cmdSend").click(function(){
+	    	$.ajax({
+			    url: '/hello/',
+			    type: 'get',
+			    success: function(data) {
+			        alert(data);
+			    },
+			    failure: function(data) { 
+			        alert('Got an error dude');
+			    }
+			});
+    	}); 
+    </script>
+
+{%endblock conteudo %}

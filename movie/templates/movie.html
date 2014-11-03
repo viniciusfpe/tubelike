@@ -1,0 +1,73 @@
+{% extends 'template.html' %}
+
+{% block titulo %}Videos {% endblock titulo %}
+
+{% block conteudo %}
+    
+    <style>
+        .commentsMovie{
+            background: #C7C5C5;
+            height: 195px;
+            margin-top: 6px;
+            border-radius: 4px;
+            border: 1px solid #575757;
+        }
+    </style>
+
+    <section class="container content-section text-center" style="padding-top: 60px;height: 100%;">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Videos</h2>
+                | 
+                {% for option in categorias %}
+                    <a href="/videos/{{ option.id }}">{{ option.descricao }}</a> | 
+                {% endfor %}
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-12">
+
+                {% for video in videos %}
+                <div style="display: table-cell;">
+                    <iframe height="200" src="{{ video.url }}" style="margin-right: 5px;" frameborder="0" allowfullscreen></iframe>
+                    <div>
+                        <button onclick="like({{ video.id }}, like{{ video.id }});" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up"></span> <span id="like{{ video.id }}"></span></button>
+                        <button onclick="unlike({{ video.id }}, unlike{{ video.id }});" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-down"></span> <span id="unlike{{ video.id }}"></span></button>
+                        <a href="/video/{{ video.id }}/" class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span></a>                        
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function like(pk, idCaunt){
+            $.ajax({
+                url: '/like/'+pk+'/',
+                type: 'get',
+                success: function(data) {
+                    $(idCaunt).text(data);
+                },
+                failure: function(data) { 
+                    alert('Por favor, tente novamente!');
+                }
+            });
+        }
+
+        function unlike(pk, idCaunt){
+            $.ajax({
+                url: '/unlike/'+pk+'/',
+                type: 'get',
+                success: function(data) {
+                    $(idCaunt).text(data);
+                },
+                failure: function(data) { 
+                    alert('Por favor, tente novamente!');
+                }
+            });
+        }
+    </script>
+
+{%endblock conteudo %}
