@@ -1,5 +1,5 @@
 from django import forms
-from movie.models import Movie, LikeComentsForMovie
+from movie.models import Movie, ComentsForMovie
 
 class MovieForm(forms.ModelForm):
 	class Meta:
@@ -7,4 +7,4 @@ class MovieForm(forms.ModelForm):
 
 class ComentsForMovieForm(forms.ModelForm):
 	class Meta:
-		model = LikeComentsForMovie
+		model = ComentsForMovie

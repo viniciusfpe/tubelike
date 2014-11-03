@@ -15,6 +15,6 @@ class ComentsForMovie(models.Model):
 
 class LikesForMovie(models.Model):
 	id_Movie = models.IntegerField(null=False, blank=False)
-	like = models.IntegerField(null=True, blank=False)	
-	unlike = models.IntegerField(null=True, blank=False)
+	like = models.IntegerField(null=True, default=0)	
+	unlike = models.IntegerField(null=True, default=0)
 
