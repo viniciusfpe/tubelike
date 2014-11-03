@@ -33,6 +33,7 @@ def getMovie(request, c=0):
 	try:
 		categorias = Categoria.objects.all().order_by('descricao')
 		videos = Movie.objects.filter(categoria=c)
+
 		return render(request, 'movie.html', {'videos':videos, 'categorias':categorias})
 
 	except:
