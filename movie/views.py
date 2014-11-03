@@ -21,9 +21,6 @@ def cadastrar(request):
 	form = MovieForm(request.POST)
 
 	if form.is_valid():
-
 		form.save()
-		movie = Movie(**form.cleaned_data)
-		Movie.save()
 
-	return HttpResponseRedirect('/')
+	return HttpResponseRedirect('/cadastro/')
