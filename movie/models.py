@@ -8,8 +8,13 @@ class Movie(models.Model):
 class Categoria(models.Model):
     descricao = models.CharField(max_length=300, blank=True)
 
-class LikeComentsForMovie(models.Model):
+class ComentsForMovie(models.Model):
 	id_Movie = models.IntegerField(null=False, blank=False)
-	comentarios = models.CharField(max_length=500, null=True, blank=True)
-	likes = models.IntegerField(null=False, blank=False)
+	comentarios = models.CharField(max_length=500, null=True, blank=True)	
 	dataCadastro = models.DateField(null=False)
+
+class LikesForMovie(models.Model):
+	id_Movie = models.IntegerField(null=False, blank=False)
+	like = models.IntegerField(null=True, default=0)	
+	unlike = models.IntegerField(null=True, default=0)
+
