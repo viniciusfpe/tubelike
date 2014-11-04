@@ -24,20 +24,24 @@
             <div class="col-lg-6">
             	<div class="" >            		
             		<table class="table comments">
-            			<tr>
-            				<th>Comentarios</th>
-            			</tr>
-					    {% for item in cmovie %}
-	                    <tr>
-	                    	<td>{{ item.comentarios }} - <small>{{ item.dataCadastro }}</small></td>
-	                    </tr> 
-		                {% endfor %}
-		                <tr>
-		                	<td style="text-align: center !important;">
-			                	<input type="text" placeholder="Deixe seu comentario..." style="height: 33px; width: 80%;"/>
-			                	<button id="cmdSend" class="btn btn-default"><span class="glyphicon glyphicon-send"></span></button>
-			                </td>
-		                </tr>
+            			<tbody id="comments">
+	            			<tr>
+	            				<th>Comentarios</th>
+	            			</tr>
+						    {% for item in cmovie %}
+		                    <tr >
+		                    	<td>{{ item.comentarios }} - <small>{{ item.dataCadastro }}</small></td>
+		                    </tr> 
+			                {% endfor %}
+		                </tbody>
+		                <tfooter>
+		                    <tr>
+			                	<td style="text-align: center !important;">
+				                	<input id="textComentario" name="textComentario" type="text" placeholder="Deixe seu comentario..." style="height: 33px; width: 80%;"/>
+				                	<button id="cmdSend" class="btn btn-default"><span class="glyphicon glyphicon-send"></span></button>
+				                </td>
+		                	</tr>
+		                </tfooter>
 					</table>
             	</div>
             </div>
@@ -46,18 +50,33 @@
     </section>
 
     <script>
-    	$("#cmdSend").click(function(){
-	    	$.ajax({
-			    url: '/hello/',
-			    type: 'get',
-			    success: function(data) {
-			        alert(data);
-			    },
-			    failure: function(data) { 
-			        alert('Got an error dude');
-			    }
-			});
-    	}); 
+	    $(document).ready(function(){
+
+	    	$("#cmdSend").click(function(){
+
+	    		var text = $("#textComentario").val();
+
+		    	$.ajax({
+				    url: '/comentar/{{ movie.id }}/',
+				    type: 'post',
+				    data: {
+				    	text: text,
+				    	csrfmiddlewaretoken: 'DJtr8mN1c3nKDqkT7w7v5IEwGJ2F6Enj'
+				    },
+				    success: function(data) {
+
+				    	var r = data.split(";");
+
+				    	var html = $("#comments").html();
+
+				        $("#comments").html(html+"<tr><td>"+r[0]+" - <small>"+r[1]+"</small></td></tr>");
+				    },
+				    failure: function(data) { 
+				        alert('Por favor, tente novamente!');
+				    }
+				});
+	    	});
+	    });
     </script>
 
 {%endblock conteudo %}

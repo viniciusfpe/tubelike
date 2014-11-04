@@ -11,7 +11,7 @@ class Categoria(models.Model):
 class ComentsForMovie(models.Model):
 	id_Movie = models.IntegerField(null=False, blank=False)
 	comentarios = models.CharField(max_length=500, null=True, blank=True)	
-	dataCadastro = models.DateField(null=False)
+	dataCadastro = models.DateTimeField(null=False, auto_now=True)
 
 class LikesForMovie(models.Model):
 	id_Movie = models.IntegerField(null=False, blank=False)

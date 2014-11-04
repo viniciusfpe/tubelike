@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from movie.forms import MovieForm, ComentsForMovieForm
 from movie.models import Movie, Categoria, ComentsForMovie, LikesForMovie
+from datetime import datetime
 
 def hello(request):
     return HttpResponse('Teste Ajax!')
@@ -79,4 +80,19 @@ def unlike(request, pk=0):
 	like.save()
 
 	return HttpResponse(unlikes)
+
+
+def comments(request, pk=0):
+
+	comentario = ComentsForMovie()
+	comentario.id_Movie = pk
+	comentario.comentarios = request.POST.get('text', '')
+
+	comentario.save()	
+
+	data = comentario.comentarios+";"+str(comentario.dataCadastro.strftime('%H:%M %d/%m/%y'))
+
+	return HttpResponse(data)
+
+	
 
