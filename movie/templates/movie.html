@@ -29,6 +29,13 @@
             <div class="col-lg-12">
 
                 {% for video in videos %}
+                <script>
+                    $(document).ready(function(){
+                        likesUnlikes({{ video.id }}, like{{ video.id }}, unlike{{ video.id }});
+                    });
+                    
+                </script>
+
                 <div style="display: table-cell;">
                     <iframe height="200" src="{{ video.url }}" style="margin-right: 5px;" frameborder="0" allowfullscreen></iframe>
                     <div>
@@ -62,6 +69,21 @@
                 type: 'get',
                 success: function(data) {
                     $(idCaunt).text(data);
+                },
+                failure: function(data) { 
+                    alert('Por favor, tente novamente!');
+                }
+            });
+        }
+
+        function likesUnlikes(pk, idCauntL, idCauntU){
+            $.ajax({
+                url: '/LikesUnlikes/'+pk+'/',
+                type: 'get',
+                success: function(data) {
+                    var lu = data.split(";");
+                    $(idCauntL).text(lu[0]);
+                    $(idCauntU).text(lu[1]);
                 },
                 failure: function(data) { 
                     alert('Por favor, tente novamente!');

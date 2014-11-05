@@ -94,5 +94,24 @@ def comments(request, pk=0):
 
 	return HttpResponse(data)
 
+def getLikesUnlikesForMovie(request, pk=0):
+
+	try:
+		likeunlike = LikesForMovie.objects.get(id_Movie=pk)
+	except: 
+		likeunlike = []
+
+	try:
+		likes = likeunlike.like
+	except:
+		likes = 0
+
+	try:
+		unlikes = likeunlike.unlike
+	except:
+		unlikes = 0
+
+	return HttpResponse(str(likes)+';'+str(unlikes))
+
 	
 

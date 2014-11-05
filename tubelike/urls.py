@@ -13,4 +13,5 @@ urlpatterns = patterns('movie.views',
     url(r'^like/(?P<pk>\d+)/$', 'like'),
     url(r'^unlike/(?P<pk>\d+)/$', 'unlike'),
     url(r'^comentar/(?P<pk>\d+)/$', 'comments'),
+    url(r'^LikesUnlikes/(?P<pk>\d+)/$', 'getLikesUnlikesForMovie'),
 )
