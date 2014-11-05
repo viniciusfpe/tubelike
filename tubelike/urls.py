@@ -17,5 +17,5 @@ urlpatterns = patterns('movie.views',
 
 from tubelike import settings
 urlpatterns += patterns('',
-        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_URL}),
     )
