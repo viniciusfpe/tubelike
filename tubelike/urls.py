@@ -14,8 +14,3 @@ urlpatterns = patterns('movie.views',
     url(r'^unlike/(?P<pk>\d+)/$', 'unlike'),
     url(r'^comentar/(?P<pk>\d+)/$', 'comments'),
 )
-
-from tubelike import settings
-urlpatterns += patterns('',
-        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-    )
