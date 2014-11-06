@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 class Movie(models.Model):
     url = models.CharField(max_length=500, blank=False, null=False)
@@ -18,7 +19,5 @@ class LikesForMovie(models.Model):
 	like = models.IntegerField(null=True, default=0)	
 	unlike = models.IntegerField(null=True, default=0)
 
-'''class Pessoa(models.Model):
-	nome = models.CharField('Login',max_length=100)
-	email = models.EmailField() 
-	senha = models.CharField(max_length=15)'''
+class Pessoa(AbstractUser):
+	endereco = models.CharField(max_length=100, blank=True, null=True)
