@@ -1,4 +1,5 @@
 from django import forms
+from pessoa.models import pessoas
 from movie.models import Movie, ComentsForMovie
 
 class MovieForm(forms.ModelForm):
