@@ -49,6 +49,9 @@
                         <a href="/#page-top"></a>
                     </li>
                     <li class="page-scroll">
+                        <a href="/login/">Login</a>
+                    </li>
+                    <li class="page-scroll">
                         <a href="/videos/1/">Vídeos</a>                        
                     </li>
                     <li class="page-scroll">
@@ -61,7 +64,18 @@
         <!-- /.container -->
     </nav>
 
-    {% block conteudo %}{% endblock conteudo %}
+    {% block conteudo %}
+
+    {% if user.is_authenticated %}
+        Se deseja mostrar algo com o usuário logado em QUALQUER template...
+        <br />
+            <a href="/dashboard/">Painel do Cliente</a>
+        <br />
+            <a href="/logoff/">Clique para sair</a>
+        <br />
+    {% endif %}
+
+    {% endblock conteudo %}
 
     <!-- Core JavaScript Files -->
     <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
