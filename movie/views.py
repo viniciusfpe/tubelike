@@ -1,7 +1,14 @@
+""" 
+@vfpeixoto
+@polianacavazini
+"""
+
+
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from movie.forms import MovieForm, ComentsForMovieForm
 from movie.models import Movie, Categoria, ComentsForMovie, LikesForMovie
 from datetime import datetime
+import markdown
 
 def hello(request):
     return HttpResponse('Teste Ajax!')
