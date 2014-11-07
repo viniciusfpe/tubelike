@@ -14,6 +14,9 @@ urlpatterns = patterns('movie.views',
     url(r'^unlike/(?P<pk>\d+)/$', 'unlike'),
     url(r'^comentar/(?P<pk>\d+)/$', 'comments'),
     url(r'^LikesUnlikes/(?P<pk>\d+)/$', 'getLikesUnlikesForMovie'),
+)
+
+urlpatterns = patterns('pessoas.views',
     url(r'^login/$', 'login'),
     url(r'^validar/$', 'validar'),
     url(r'^logoff/$', 'logoff'),

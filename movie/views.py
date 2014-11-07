@@ -9,7 +9,6 @@ from movie.forms import MovieForm, ComentsForMovieForm
 from movie.models import Movie, Categoria, ComentsForMovie, LikesForMovie
 from datetime import datetime
 import markdown
-from pessoas.forms import PessoaForm, LoginForm
 from django.contrib.auth import authenticate, logout, login as meu_login
 from django.contrib.auth.decorators import login_required
 
