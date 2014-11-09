@@ -1,3 +1,23 @@
+""" 
+@vfpeixoto
+@polianacavazini
+
+"""
+
+"""
+from django.shortcuts import render, HttpResponseRedirect, HttpResponse
+from django.conf.urls import patterns, include, url
+from django.contrib import admin
+admin.autodiscover()
+
+urlpatterns = patterns('',
+	url(r'^hello/$', 'hello'),
+    url(r'^$', 'movie.views.index'),
+    url(r'^movie/', include('movie.urlsMovie')),
+    url(r'^pessoas/', include('pessoas.urlsPessoas')),
+)
+"""
+
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
@@ -14,11 +34,6 @@ urlpatterns = patterns('movie.views',
     url(r'^unlike/(?P<pk>\d+)/$', 'unlike'),
     url(r'^comentar/(?P<pk>\d+)/$', 'comments'),
     url(r'^LikesUnlikes/(?P<pk>\d+)/$', 'getLikesUnlikesForMovie'),
-)
-
-urlpatterns = patterns('pessoas.views',
-    url(r'^login/$', 'login'),
-    url(r'^validar/$', 'validar'),
-    url(r'^logoff/$', 'logoff'),
-    url(r'^dashboard/$', 'dashboard'),
+    url(r'^pessoas/', include('pessoas.urlsPessoas')),
+    url(r'^login/', include('pessoas.urlsPessoas')),
 )

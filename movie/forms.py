@@ -1,3 +1,4 @@
+# coding: utf-8
 from django import forms
 from movie.models import Movie, ComentsForMovie
 from pessoas.models import Pessoa

@@ -1,16 +1,14 @@
 """ 
 @vfpeixoto
 @polianacavazini
-"""
 
+"""
 
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from movie.forms import MovieForm, ComentsForMovieForm
 from movie.models import Movie, Categoria, ComentsForMovie, LikesForMovie
 from datetime import datetime
 import markdown
-from django.contrib.auth import authenticate, logout, login as meu_login
-from django.contrib.auth.decorators import login_required
 
 def hello(request):
     return HttpResponse('Teste Ajax!')
@@ -121,10 +119,3 @@ def getLikesUnlikesForMovie(request, pk=0):
 		unlikes = 0
 
 	return HttpResponse(str(likes)+';'+str(unlikes))
-
-def login(request):
-    form = LoginForm()
-    return render(request, 'login.html',{'form':form})
-
-	
-
