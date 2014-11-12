@@ -1,4 +1,8 @@
-<h1>DASHBOARD DO USUÁRIO</h1>
+{% extends 'template.html' %}
+
+{% block titulo %}Dashboard{% endblock titulo %}
+
+{% block conteudo %}
 
 <br />
 Conteúdo bloqueado do usuário
@@ -7,3 +11,5 @@ E-mail do usuário logado: {{ user.email }}
 <br />
 <br />
 <a href="/logoff/">Sair</a>
+
+{%endblock conteudo %}

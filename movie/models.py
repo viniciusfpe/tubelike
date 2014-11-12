@@ -1,4 +1,10 @@
+""" 
+@vfpeixoto
+@polianacavazini
+"""
+
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 class Movie(models.Model):
     url = models.CharField(max_length=500, blank=False, null=False)
@@ -17,3 +23,6 @@ class LikesForMovie(models.Model):
 	id_Movie = models.IntegerField(null=False, blank=False)
 	like = models.IntegerField(null=True, default=0)	
 	unlike = models.IntegerField(null=True, default=0)
+
+class Pessoa(AbstractUser):
+	endereco = models.CharField(max_length=100, blank=True, null=True)

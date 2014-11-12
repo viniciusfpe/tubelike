@@ -46,17 +46,23 @@
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
-                        <a href="/#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/login/">Login</a>
-                    </li>
+                        <a href="/"></a>
+                    </li>                  
                     <li class="page-scroll">
                         <a href="/videos/1/">Vídeos</a>                        
                     </li>
                     <li class="page-scroll">
                         <a href="/cadastro/">Cadastre</a>
                     </li>
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="/logoff/">{{ user.username }} - Sair</a>
+                        </li>
+                    {% else %}
+                        <li class="page-scroll">
+                            <a href="/login/">Login</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -65,16 +71,6 @@
     </nav>
 
     {% block conteudo %}
-
-    {% if user.is_authenticated %}
-        Se deseja mostrar algo com o usuário logado em QUALQUER template...
-        <br />
-            <a href="/dashboard/">Painel do Cliente</a>
-        <br />
-            <a href="/logoff/">Clique para sair</a>
-        <br />
-    {% endif %}
-
     {% endblock conteudo %}
 
     <!-- Core JavaScript Files -->

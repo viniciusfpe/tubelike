@@ -1,3 +1,8 @@
+""" 
+@vfpeixoto
+@polianacavazini
+"""
+
 """
 Django settings for tubelike project.
 
@@ -12,7 +17,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-AUTH_USER_MODEL = 'pessoas.Pessoa'
+AUTH_USER_MODEL = 'movie.Pessoa'
 LOGIN_URL = '/login/'
 
 
@@ -40,7 +45,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'movie',
-    'pessoas',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -50,6 +54,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'django.contrib.sessions.middleware.SessionMiddleware',
+    #'django.middleware.locale.LocaleMiddleware',
 )
 
 ROOT_URLCONF = 'tubelike.urls'
@@ -70,7 +76,16 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
+
+"""LANGUAGE = (
+    ('pt-br', 'Brasil'),
+    ('en', 'English'),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)"""
 
 TIME_ZONE = 'UTC'
 
