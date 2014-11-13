@@ -12,6 +12,7 @@ from movie.forms import PessoaForm, LoginForm
 from django.contrib.auth import authenticate, logout, login as meu_login
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
+from django.utils.translation import ugettext_lazy as _
 
 def hello(request):
     return HttpResponse('Teste Ajax!')

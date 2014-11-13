@@ -22,4 +22,5 @@ urlpatterns = patterns('movie.views',
     url(r'^login/$', 'login'),
     url(r'^validar/$', 'validar'),
     url(r'^logoff/$', 'logoff'),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 )

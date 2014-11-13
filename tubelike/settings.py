@@ -54,8 +54,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'django.contrib.sessions.middleware.SessionMiddleware',
-    #'django.middleware.locale.LocaleMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 )
 
 ROOT_URLCONF = 'tubelike.urls'
@@ -78,14 +78,14 @@ DATABASES = {
 
 LANGUAGE_CODE = 'pt-br'
 
-"""LANGUAGE = (
+LANGUAGE = (
     ('pt-br', 'Brasil'),
     ('en', 'English'),
 )
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
-)"""
+)
 
 TIME_ZONE = 'UTC'
 
