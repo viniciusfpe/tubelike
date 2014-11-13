@@ -1,5 +1,7 @@
 {% load staticfiles %}
 
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,6 +41,8 @@
                 <a class="navbar-brand" href="/#page-top">
                     <i class="fa fa-play-circle"></i>  <span class="light">Tube</span>Like
                 </a>
+                <a href="#" onclick="document.setLangEnglish.submit();return false;">EN</a>
+                <a href="#" onclick="document.setLangPortugues.submit();return false;">BR</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -46,14 +50,23 @@
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
-                        <a href="/#page-top"></a>
+                        <a href="/"></a>
+                    </li>                  
+                    <li class="page-scroll">
+                        <a href="/videos/1/">{% blocktrans %}Vídeos{% endblocktrans %}</a>                        
                     </li>
                     <li class="page-scroll">
-                        <a href="/videos/1/">Videos</a>                        
+                        <a href="/cadastro/">{% blocktrans %}Cadastre{% endblocktrans %}</a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="/cadastro/">Cadastre</a>
-                    </li>
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="/logoff/">{{ user.username }}{% blocktrans %} - Sair{% endblocktrans %}</a>
+                        </li>
+                    {% else %}
+                        <li class="page-scroll">
+                            <a href="/login/">Login</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -61,7 +74,20 @@
         <!-- /.container -->
     </nav>
 
-    {% block conteudo %}{% endblock conteudo %}
+    <form name="setLangEnglish" action="/i18n/setlang/" method="POST">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="/" />
+        <input type="hidden" name="language" value="en" />
+    </form>
+
+     <form name="setLangPortugues" action="/i18n/setlang/" method="POST">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="/" />
+        <input type="hidden" name="language" value="pt-br" />
+    </form>
+
+    {% block conteudo %}
+    {% endblock conteudo %}
 
     <!-- Core JavaScript Files -->
     <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>

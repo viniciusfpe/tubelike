@@ -1,5 +1,5 @@
 {% extends 'template.html' %}
-
+{% load i18n %}
 {% block titulo %}Home{% endblock titulo %}
 
 {% block conteudo %}
@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">TubeLike</h1>
-                        <p class="intro-text">Os melhores videos da internet em um só lugar.</p>
+                        <p class="intro-text">{% blocktrans %}Os melhores vídeos da internet em um só lugar.{% endblocktrans %}</p>
                     </div>
                 </div>
             </div>

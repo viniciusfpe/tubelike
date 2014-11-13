@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-13 21:35-0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: movie/templates/cadastro.html:3
+msgid "Cadastro"
+msgstr "Register"
+
+#: movie/templates/cadastro.html:30
+msgid "Cadastre um Top Vídeo"
+msgstr ""
+
+#: movie/templates/cadastro.html:44
+msgid "Selecione..."
+msgstr "Top Vídeo Register"
+
+#: movie/templates/comentsmovie.html:3
+msgid "Detalhes do video"
+msgstr "Movie details"
+
+#: movie/templates/comentsmovie.html:29
+msgid "Comentários"
+msgstr "Comments"
+
+#: movie/templates/comentsmovie.html:40
+msgid "Deixe seu comentario..."
+msgstr "Leave a comment"
+
+#: movie/templates/index.html:13
+msgid "Os melhores vídeos da internet em um só lugar."
+msgstr "The best videos of internet in one place."
+
+#: movie/templates/movie.html:3 movie/templates/movie.html.py:20
+#: movie/templates/template.html:56
+msgid "Vídeos"
+msgstr "Movies"
+
+#: movie/templates/template.html:59
+msgid "Cadastre"
+msgstr "Register movie"
+
+#: movie/templates/template.html:63
+msgid " - Sair"
+msgstr " - Logoff"

@@ -1,6 +1,6 @@
 {% extends 'template.html' %}
-
-{% block titulo %}Detalhes do video{% endblock titulo %}
+{% load i18n %}
+{% block titulo %}{% blocktrans %}Detalhes do video{% endblocktrans %}{% endblock titulo %}
 
 {% block conteudo %}
     
@@ -26,7 +26,7 @@
             		<table class="table comments">
             			<tbody id="comments">
 	            			<tr>
-	            				<th>Comentarios</th>
+	            				<th>{% blocktrans %}Comentários{% endblocktrans %}</th>
 	            			</tr>
 						    {% for item in cmovie %}
 		                    <tr >
@@ -37,7 +37,7 @@
 		                <tfooter>
 		                    <tr>
 			                	<td style="text-align: center !important;">
-				                	<input id="textComentario" name="textComentario" type="text" placeholder="Deixe seu comentario..." style="height: 33px; width: 80%;"/>
+				                	<input id="textComentario" name="textComentario" type="text" placeholder="{% blocktrans %}Deixe seu comentario...{% endblocktrans %}" style="height: 33px; width: 80%;"/>
 				                	<button id="cmdSend" class="btn btn-default"><span class="glyphicon glyphicon-send"></span></button>
 				                </td>
 		                	</tr>

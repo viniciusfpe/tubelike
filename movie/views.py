@@ -1,7 +1,18 @@
+""" 
+@vfpeixoto
+@polianacavazini
+
+"""
+
+# coding: utf-8
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from movie.forms import MovieForm, ComentsForMovieForm
 from movie.models import Movie, Categoria, ComentsForMovie, LikesForMovie
+from movie.forms import PessoaForm, LoginForm
+from django.contrib.auth import authenticate, logout, login as meu_login
+from django.contrib.auth.decorators import login_required
 from datetime import datetime
+from django.utils.translation import ugettext_lazy as _
 
 def hello(request):
     return HttpResponse('Teste Ajax!')
@@ -9,6 +20,7 @@ def hello(request):
 def index(request):
     return render(request, 'index.html')
 
+@login_required()
 def cadastro(request):
 	form = MovieForm()
 	try:
@@ -40,7 +52,7 @@ def getMovie(request, c=0):
 	except:
 		return HttpResponseRedirect('/')
 
-
+@login_required()
 def getMovieForComents(request, v=0):
 	try:
 		movie = Movie.objects.get(pk=v)
@@ -113,5 +125,30 @@ def getLikesUnlikesForMovie(request, pk=0):
 
 	return HttpResponse(str(likes)+';'+str(unlikes))
 
-	
+def login(request):
+    form = LoginForm()
+    return render(request, 'login.html',{'form':form})
 
+def validar(request):
+	if request.method == 'POST':
+		form = LoginForm(request.POST)
+
+		if form.is_valid():
+			pessoa = authenticate(username=form.data['login'], password=form.data['senha'])
+
+			if pessoa is not None:
+				if pessoa.is_active:
+					meu_login(request, pessoa)
+					return HttpResponseRedirect('/')
+				else:
+					return render(request, 'login.html', {'form': form})
+			else:
+				return render(request, 'login.html', {'form': form})
+		else:
+			return render(request, 'login.html', {'form': form})
+	else:
+		return HttpResponseRedirect('/login/')
+
+def logoff(request):
+	logout(request)
+	return HttpResponseRedirect('/')

@@ -1,5 +1,10 @@
-from django.conf.urls import patterns, include, url
+""" 
+@vfpeixoto
+@polianacavazini
+"""
 
+from django.conf.urls import patterns, include, url
+from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.contrib import admin
 admin.autodiscover()
 
@@ -14,4 +19,8 @@ urlpatterns = patterns('movie.views',
     url(r'^unlike/(?P<pk>\d+)/$', 'unlike'),
     url(r'^comentar/(?P<pk>\d+)/$', 'comments'),
     url(r'^LikesUnlikes/(?P<pk>\d+)/$', 'getLikesUnlikesForMovie'),
+    url(r'^login/$', 'login'),
+    url(r'^validar/$', 'validar'),
+    url(r'^logoff/$', 'logoff'),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 )

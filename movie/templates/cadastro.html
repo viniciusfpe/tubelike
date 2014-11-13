@@ -1,6 +1,6 @@
 {% extends 'template.html' %}
-
-{% block titulo %}Cadastro{% endblock titulo %}
+{% load i18n %}
+{% block titulo %}{% blocktrans %}Cadastro{% endblocktrans %}{% endblock titulo %}
 
 {% block conteudo %}
 
@@ -27,7 +27,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1>Cadastre um Top Video</h1>
+                        <h1>{% blocktrans %}Cadastre um Top Vídeo{% endblocktrans %}</h1>
                         <form action="/cadastrar/" method="POST" class="form-horizontal" role="form">
                             {%csrf_token%}
                             {% for field in form %}
@@ -41,7 +41,7 @@
                                 <div class="form-group">
                                     <div class="col-sm-12">
                                         <select  class="form-control" id="{{ field.id_for_label }}" name="{{ field.html_name }}">
-                                            <option value="">Selecione...</option>
+                                            <option value="">{% blocktrans %}Selecione...{% endblocktrans %}</option>
                                             {% for option in categorias %}
                                             <option value="{{ option.id }}">{{ option.descricao }}</option>
                                             {% endfor %}

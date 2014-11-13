@@ -1,3 +1,8 @@
+""" 
+@vfpeixoto
+@polianacavazini
+"""
+
 """
 WSGI config for tubelike project.
 

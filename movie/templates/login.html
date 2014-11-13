@@ -1,0 +1,26 @@
+{% extends 'template.html' %}
+
+{% block titulo %}Login{% endblock titulo %}
+
+{% block conteudo %}
+   <section class="container content-section text-center" style="padding-top: 250px;height: 100%;">
+        <div class="row">
+        	<div class="col-md-3"></div>
+            <div class="col-md-6">
+              <form action="/validar/" method="POST" class="form-horizontal" role="form">
+                    {%csrf_token%}
+                    {% for field in form %}
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input class="form-control" id="{{ field.id_for_label }}" name="{{ field.html_name }}" placeholder="{{ field.html_name }}">
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <input class="btn btn-default" type="submit" value="Cadastrar" />
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </section>
+{% endblock conteudo %}
