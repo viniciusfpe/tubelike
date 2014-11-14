@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-13 21:35-0200\n"
+"POT-Creation-Date: 2014-11-14 21:14-0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,35 +17,40 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: movie/templates/cadastro.html:3
+#: movie/templates/cadastro.html:5 movie/templates/cadastrouser.html:5
 msgid "Cadastro"
 msgstr "Register"
 
-#: movie/templates/cadastro.html:30
+#: movie/templates/cadastro.html:32
 msgid "Cadastre um Top Vídeo"
 msgstr "Top Vídeo register"
 
-#: movie/templates/cadastro.html:44
+#: movie/templates/cadastro.html:46
 msgid "Selecione..."
 msgstr "Select..."
 
-#: movie/templates/comentsmovie.html:3
+#: movie/templates/cadastrouser.html:13
+#, fuzzy
+msgid "Cadastre-se agora"
+msgstr "Register movie"
+
+#: movie/templates/comentsmovie.html:5
 msgid "Detalhes do video"
 msgstr "Movie details"
 
-#: movie/templates/comentsmovie.html:29
+#: movie/templates/comentsmovie.html:31
 msgid "Comentários"
 msgstr "Comments"
 
-#: movie/templates/comentsmovie.html:40
+#: movie/templates/comentsmovie.html:42
 msgid "Deixe seu comentario..."
 msgstr "Leave a comment"
 
-#: movie/templates/index.html:13
+#: movie/templates/index.html:15
 msgid "Os melhores vídeos da internet em um só lugar."
 msgstr "The best videos of internet in one place."
 
-#: movie/templates/movie.html:3 movie/templates/movie.html.py:20
+#: movie/templates/movie.html:5 movie/templates/movie.html.py:22
 #: movie/templates/template.html:56
 msgid "Vídeos"
 msgstr "Movies"
@@ -57,3 +62,7 @@ msgstr "Register movie"
 #: movie/templates/template.html:63
 msgid " - Sair"
 msgstr " - Logoff"
+
+#: movie/templates/template.html:70
+msgid "Registre-se"
+msgstr ""
