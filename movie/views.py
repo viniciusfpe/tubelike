@@ -7,8 +7,8 @@
 # coding: utf-8
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from movie.forms import MovieForm, ComentsForMovieForm
-from movie.models import Movie, Categoria, ComentsForMovie, LikesForMovie
-from movie.forms import PessoaForm, LoginForm
+from movie.models import Movie, Categoria, ComentsForMovie, LikesForMovie, Pessoa
+from movie.forms import LoginForm, cadastroForm
 from django.contrib.auth import authenticate, logout, login as meu_login
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
@@ -129,6 +129,10 @@ def login(request):
     form = LoginForm()
     return render(request, 'login.html',{'form':form})
 
+def logoff(request):
+	logout(request)
+	return HttpResponseRedirect('/')
+
 def validar(request):
 	if request.method == 'POST':
 		form = LoginForm(request.POST)
@@ -149,6 +153,22 @@ def validar(request):
 	else:
 		return HttpResponseRedirect('/login/')
 
-def logoff(request):
-	logout(request)
-	return HttpResponseRedirect('/')
+def Cadastro_user(request):
+	form = cadastroForm()
+	return render(request,'cadastrouser.html',{'form':form})
+
+def Cadastrar_user(request):
+	if request.method == 'POST':
+		form = cadastroForm(request.POST)
+
+	if form.is_valid():
+		pessoa = Pessoa(
+			username=form.data['login'],
+			email=form.data['email'],
+			is_active=True
+		)
+
+	pessoa.set_password(form.data['senha'])
+	pessoa.save()
+	
+	return HttpResponseRedirect('/login/');

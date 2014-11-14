@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+
+{% load i18n %}
+
+{% block titulo %}{% blocktrans %}Cadastro{% endblocktrans %}{% endblock titulo %}
+
+{% block conteudo %}
+    <section id="cadastre" class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1>{% blocktrans %}Cadastre-se agora{% endblocktrans %}</h1>
+                        <form action="/Cadastraruser/" method="POST" class="form-horizontal" role="form">
+                            {%csrf_token%}
+                            {% for field in form %}
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" id="{{ field.id_for_label }}" name="{{ field.html_name }}" placeholder="{{ field.html_name }}">
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <input class="btn btn-default" type="submit" value="Cadastrar" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{%endblock conteudo %}
