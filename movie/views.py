@@ -95,7 +95,7 @@ def unlike(request, pk=0):
 
 
 def comments(request, pk=0):
-
+	
 	comentario = ComentsForMovie()
 	comentario.id_Movie = pk
 	comentario.comentarios = request.POST.get('text', '')

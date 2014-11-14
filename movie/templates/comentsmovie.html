@@ -51,6 +51,8 @@
         </div>
     </section>
 
+    {%csrf_token%}
+
     <script>
 	    $(document).ready(function(){
 
@@ -63,7 +65,7 @@
 				    type: 'post',
 				    data: {
 				    	text: text,
-				    	csrfmiddlewaretoken: 'DJtr8mN1c3nKDqkT7w7v5IEwGJ2F6Enj'
+				    	csrfmiddlewaretoken: $("[name='csrfmiddlewaretoken']").val()
 				    },
 				    success: function(data) {
 
