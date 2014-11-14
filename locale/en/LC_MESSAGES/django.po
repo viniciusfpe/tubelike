@@ -32,7 +32,7 @@ msgstr "Select..."
 #: movie/templates/cadastrouser.html:13
 #, fuzzy
 msgid "Cadastre-se agora"
-msgstr "Register movie"
+msgstr "Register now"
 
 #: movie/templates/comentsmovie.html:5
 msgid "Detalhes do video"
@@ -65,4 +65,4 @@ msgstr " - Logoff"
 
 #: movie/templates/template.html:70
 msgid "Registre-se"
-msgstr ""
+msgstr "Sign in"
