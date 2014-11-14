@@ -54,6 +54,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
 )
@@ -80,7 +81,7 @@ LANGUAGE_CODE = 'pt-br'
 
 LANGUAGE = (
     ('pt-br', 'Brasil'),
-    ('en', 'English'),
+    ('en', 'EUA'),
 )
 
 LOCALE_PATHS = (

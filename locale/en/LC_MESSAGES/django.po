@@ -23,11 +23,11 @@ msgstr "Register"
 
 #: movie/templates/cadastro.html:30
 msgid "Cadastre um Top Vídeo"
-msgstr ""
+msgstr "Top Vídeo register"
 
 #: movie/templates/cadastro.html:44
 msgid "Selecione..."
-msgstr "Top Vídeo Register"
+msgstr "Select..."
 
 #: movie/templates/comentsmovie.html:3
 msgid "Detalhes do video"
