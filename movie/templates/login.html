@@ -1,5 +1,7 @@
 {% extends 'template.html' %}
 
+{% load i18n %}
+
 {% block titulo %}Login{% endblock titulo %}
 
 {% block conteudo %}
@@ -17,7 +19,7 @@
                     </div>
                     {% endfor %}
 
-                    <input class="btn btn-default" type="submit" value="{% blocktrans %}Cadastrar{% endblocktrans %}" />
+                    <input class="btn btn-default" type="submit" value="Login" />
                 </form>
             </div>
             <div class="col-md-3"></div>
