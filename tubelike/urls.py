@@ -25,5 +25,4 @@ urlpatterns = patterns('movie.views',
     url(r'^Cadastrouser/$', 'Cadastro_user'),
     url(r'^Cadastraruser/$', 'Cadastrar_user'),
     url(r'^i18n/', include('django.conf.urls.i18n')),
-    url(r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 )
