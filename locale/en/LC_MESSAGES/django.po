@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-14 21:14-0200\n"
+"POT-Creation-Date: 2014-11-17 09:55-0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,20 +23,24 @@ msgstr "Register"
 
 #: movie/templates/cadastro.html:32
 msgid "Cadastre um Top Vídeo"
-msgstr "Top Vídeo register"
+msgstr "Top Movie Register"
 
 #: movie/templates/cadastro.html:46
 msgid "Selecione..."
 msgstr "Select..."
 
+#: movie/templates/cadastro.html:56 movie/templates/cadastrouser.html:23
+#: movie/templates/login.html:20
+msgid "Cadastrar"
+msgstr "Register"
+
 #: movie/templates/cadastrouser.html:13
-#, fuzzy
 msgid "Cadastre-se agora"
 msgstr "Register now"
 
 #: movie/templates/comentsmovie.html:5
 msgid "Detalhes do video"
-msgstr "Movie details"
+msgstr "Display settings"
 
 #: movie/templates/comentsmovie.html:31
 msgid "Comentários"
@@ -44,7 +48,7 @@ msgstr "Comments"
 
 #: movie/templates/comentsmovie.html:42
 msgid "Deixe seu comentario..."
-msgstr "Leave a comment"
+msgstr "Leave a comment..."
 
 #: movie/templates/index.html:15
 msgid "Os melhores vídeos da internet em um só lugar."
@@ -57,12 +61,12 @@ msgstr "Movies"
 
 #: movie/templates/template.html:59
 msgid "Cadastre"
-msgstr "Register movie"
+msgstr "Register Movie"
 
 #: movie/templates/template.html:63
 msgid " - Sair"
-msgstr " - Logoff"
+msgstr " - Logof"
 
 #: movie/templates/template.html:70
 msgid "Registre-se"
-msgstr "Sign in"
+msgstr "Register"
