@@ -5,5 +5,5 @@ Portal para armazenar os melhores vídeos do youtube e gerar comentários sobre 
 
 Trabalho para disciplina de programação para internet do curso de Sistemas de Informação - UNIFRAN 
 <br><strong>Alunos: </strong><br>
-	Vinicius Fernandes Peixoto
+	Vinicius Fernandes Peixoto <br>
 	Poliana Cavazini	
